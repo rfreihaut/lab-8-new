@@ -7,48 +7,48 @@ namespace lab8080419
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to our C# class");
-            bool cont = true;
-            while (cont == true)
+            bool continu = true;
+            while (continu == true)
             {
                 Console.WriteLine(GetStudent());
-                Console.WriteLine("Would you like to continuye? (Y/N");
+                Console.WriteLine("Would you like to continue? Y/N");
                 string answer = Console.ReadLine();
-                if (answer.ToLower() == "y")
+                string result = answer.Trim();
+                if (result.ToLower() == "y")
                 {
-                    cont = true;
+                    continu = true;
                 }
                 else
                 {
-                    Console.WriteLine("Thanks");
-                    cont = false;
+                    Console.WriteLine("Thank You, Goodbye");
+                    continu = false;
                 }
             }
             Console.ReadKey();
         }
         public static int GetInput()
         {
-            Console.WriteLine("Please input a valid int");
+            Console.WriteLine("Please input a valid integer");
             string GetInput = Console.ReadLine();
             int index = int.Parse(GetInput);
             return index;
         }
         public static string GetStudent()
         {
-            string[] studentName = { "Tommy", "Dekoda", "Cody", "Joshua", "Kim", "James", "Marcia", "Sam", "Manik" };
-            string[] hometown = { "Ohio", "Kent", "Lawton", "Grand Rapids", "Grand Rapids", "Grand Rapids", "Morelia", "Grand Rapids", "Cox'sBazar" };
-            string[] favoritFood = { "Chicken Curry", "Pho", "Potato Soup", "Cheese Tortellini", "Sushi", "Cheeseburgers", "Tacos", "Tacos", "Beef Curry" };
+            string[] studentName = { "Dakota", "Josh", "Tommy", "James", "Maricela", "KimVy", "Sam", "Cody", "Flaka","Manik", "Mahruchi", "Moise", "Liz", "Jason", "Bob" };
+            string[] homeTown = { "Kent City", "Grand Rapids", "Raleigh", "Grand Rapids", "Morelia", "Grand Rapids", "Grand Rapids", "Lawton", "Pristina", "Cox'sBazar","Teaneck", "Grand Rapids", "Earth", "Holland", "Metro Detroit" };
+            string[] favoriteFood = { "Pho", "Tortellini", "Chicken Curry", "Cheese Burgers", "Tacos", "Sushi", "Tacos", "Potato Soup", "Thai", "Beef Curry","Chicken Wings", "Lasagna", "Salmon", "Burgers", "Burgers" };
             int input;
             try
             {
-                Console.WriteLine("Which student would you like to learn more about? (enter a number 1 - 10)");
+                Console.WriteLine("Which student would you like to learn more about? (enter a number 0 - 14)");
                 input = GetInput();
-                string studentinfo = "Student name" + studentName[input - 1] + " Home town =" + hometown[input - 1] + "Favorit Food" + favoritFood[input - 1];
+                string studentinfo = "Student name " + studentName[input] + "  Hometown  " + homeTown[input] + " Favorite Food " + favoriteFood[input];
                 return studentinfo;
             }
-            catch (System.IndexOutOfRangeException)
+            catch (IndexOutOfRangeException e)
             {
-                return ("Student not found, try another index");
+                return "Student not found, try another index 0-14";
             }
         }
     }
